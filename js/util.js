@@ -27,4 +27,5 @@ const getFreeId = (array) => {
     }
   }
 };
+
 export {getRandomInt, checkLength, getRandomArrayElement, getFreeId};
