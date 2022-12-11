@@ -1,4 +1,5 @@
 function initForm() {
+  const body = document.querySelector('body');
   const initialImgUpload = document.querySelector('.img-upload__start');
   const editImg = document.querySelector('.img-upload__overlay');
   const uploadFile = document.querySelector('#upload-file');
@@ -7,7 +8,7 @@ function initForm() {
 
   const closeOption = () => {
     editImg.classList.add('hidden');
-    document.body.classList.remove('modal-open');
+    body.classList.remove('modal-open');
     uploadFile.value = '';
     imgDescr.value = '';
     hashtags.value = '';
@@ -30,7 +31,7 @@ function initForm() {
 
   initialImgUpload.onchange = () => {
     editImg.classList.remove('hidden');
-    document.body.classList.add('modal-open');
+    body.classList.add('modal-open');
 
     closeButton();
   };

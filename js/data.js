@@ -1,6 +1,6 @@
-import {getRandomInt, getRandomArrayElement, getFreeId} from './util.js';
+import { getRandomInt, getRandomArrayElement, getFreeId } from './util.js';
 const AMOUNT_OF_POSTS = 25;
-const MAX_AMOUNT_OF_COMMENTS = 4;
+const MAX_AMOUNT_OF_COMMENTS = 10;
 const MAX_ID = 25;
 const ARRAY_OF_ID = Array(AMOUNT_OF_POSTS).fill(false);
 const ARRAY_OF_URL = Array(AMOUNT_OF_POSTS).fill(false);
@@ -58,4 +58,4 @@ const createDescription = () => ({
 
 const getPhotos = () => Array.from({length: AMOUNT_OF_POSTS}, createDescription);
 
-export {getPhotos};
+export { getPhotos };
