@@ -26,7 +26,6 @@ function initForm() {
   const erroneousSubmission = document.querySelector('#error').content.querySelector('.error');
   const successButton = successfulSubmission.querySelector('.success__button');
   const errorButton = erroneousSubmission.querySelector('.error__button');
-
   let checkedBox;
 
   const closeOption = () => {
@@ -189,6 +188,8 @@ function initForm() {
   let boolHashtagGlobal = true;
   let boolCommentGlobal = true;
 
+  const hashtagTmpl = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+
   const pristine = new Pristine(form, {
     classTo: 'text',
     errorClass: 'text--invalid',
@@ -206,13 +207,20 @@ function initForm() {
     }
   };
 
-  const hashtagTmpl = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
-
   const isCorrectHashtag = (value) => hashtagTmpl.test(value);
 
   const validateHashtag = (value) => {
-    const hashtag = value.split(' ');
-    const bool = hashtag.every(isCorrectHashtag);
+    const hashtags2 = value.split(' ');
+    const copyHashtags = new Set();
+    for (const hashtag of hashtags2) {
+      copyHashtags.add(hashtag.toLowerCase());
+    }
+    if (copyHashtags.size < hashtags2.length || hashtags2.length > 5) {
+      boolHashtagGlobal = false;
+      controlSubmit();
+      return false;
+    }
+    const bool = hashtags2.every(isCorrectHashtag);
     boolHashtagGlobal = bool;
     controlSubmit();
     return bool;
@@ -233,7 +241,7 @@ function initForm() {
 
   const blockSubmitButton = () => {
     submitButton.disabled = true;
-    submitButton.textContent = 'Опубликовываю...';
+    submitButton.textContent = 'Секундочку...';
   };
 
   const unblockSubmitButton = () => {
@@ -301,6 +309,7 @@ function initForm() {
       );
     }
   }
+
 }
 
 export { initForm };

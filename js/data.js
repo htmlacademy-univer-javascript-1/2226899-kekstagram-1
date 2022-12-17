@@ -57,5 +57,5 @@ const createDescription = () => ({
 });
 
 const getPhotos = () => Array.from({length: AMOUNT_OF_POSTS}, createDescription);
-
-export { getPhotos };
+const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
+export { getPhotos, FILE_TYPES };
