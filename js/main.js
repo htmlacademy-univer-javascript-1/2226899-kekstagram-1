@@ -1,10 +1,8 @@
-import { getPhotos } from './data.js';
 import { renderPosts } from './render.js';
 import { initForm } from './form.js';
-import { initValidation } from './validation.js';
+import { showError } from './util.js';
+import { getData } from './api.js';
 
-initValidation();
 initForm();
 
-const photos = getPhotos();
-renderPosts(photos);
+getData(renderPosts, showError);
