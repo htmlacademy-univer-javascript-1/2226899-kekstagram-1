@@ -1,8 +1,8 @@
-import { renderPosts } from './render.js';
 import { initForm } from './form.js';
-import { showError } from './util.js';
+import { firstRenderPosts } from './render.js';
 import { getData } from './api.js';
+import { showError } from './util.js';
 
 initForm();
 
-getData(renderPosts, showError);
+getData(firstRenderPosts, showError);
