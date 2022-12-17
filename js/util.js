@@ -28,4 +28,12 @@ const getFreeId = (array) => {
   }
 };
 
-export { getRandomInt, checkLength, getRandomArrayElement, getFreeId };
+const showError = (errorMessage) => {
+  const errorTemplate = document.querySelector('#error').content.querySelector('section');
+  const error = errorTemplate.cloneNode(true);
+
+  error.querySelector('h2').textContent = errorMessage;
+  document.querySelector('body').append(error);
+};
+
+export { getRandomInt, checkLength, getRandomArrayElement, getFreeId, showError };
