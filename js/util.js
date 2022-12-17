@@ -1,4 +1,3 @@
-// Результат: целое число из диапазона "от...до"
 const getRandomInt = (first, last) => {
   if (first >= last) {
     throw new Error('First cannot be greater than last.');
@@ -14,7 +13,6 @@ const getRandomInt = (first, last) => {
   return Math.floor(Math.random() * (last + 1 - first) + first);
 };
 
-// Результат: true, если строка проходит по длине, и false — если не проходит
 const checkLength = (str, maxLen) => str.length <= maxLen;
 
 const getRandomArrayElement = (elements) => elements[getRandomInt(0, elements.length - 1)];
